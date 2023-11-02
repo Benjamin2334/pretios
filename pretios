@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+int prim[]={2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61};
+int long long a, b, nr=0, st, dr, x;
+int main()
+{
+    cin>>a>>b;
+    for(int i=0;i<18;i++){
+        x=prim[i];
+        st=(1LL<<(x-1));
+        dr=((1LL<<x)-1);
+        
+        if(st<a){
+            st=a;
+        }
+        if(st>b){
+            break;
+        }
+        if(dr>b){
+            dr=b;
+        }
+        if(st<=dr){
+            nr+=dr-st+1;
+        }
+    }
+    cout<<nr;
+
+    return 0;
+}
